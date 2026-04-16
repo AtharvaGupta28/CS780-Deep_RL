@@ -37,7 +37,6 @@ DIFFICULTY_SCHEDULE = [
     (3000, 3),    
 ]
 
-# Wall curriculum: (episode_start, wall_probability)
 WALL_SCHEDULE = [
     (0,    0.00),
     (1000, 0.15),
@@ -46,7 +45,6 @@ WALL_SCHEDULE = [
     (5000, 0.65),
 ]
 
-# Penalty curriculum multiplier (ramps 0.2 → 1.0)
 PSCALE_RAMP_END    = 2500
 
 ANTI_SPIN_WINDOW   = 10        # consecutive steps checked for spin
@@ -62,14 +60,14 @@ N_STATES = 2 ** N_BITS         # 4096 states
 HAMMING_WEIGHTS = np.array(
     [1, 1, 1, 1, 1, 1, 6, 6, 6, 1, 1, 1], dtype=np.float32
 )
-HAMMING_THRESHOLD = 2          # states with weighted distance ≤ 2 share updates
+HAMMING_THRESHOLD = 2 
 
 ACTIONS   = ["L45", "L22", "FW", "R22", "R45"]
 N_ACTIONS = 5
-ROTATIONS = {0, 1, 3, 4}      # indices of rotation actions
+ROTATIONS = {0, 1, 3, 4} 
 FW        = 2
 
-SAVE_BEST_SR    = os.path.join(SAVE_DIR, 'q_best_sr_v3.npy')       # best success rate
+SAVE_BEST_SR    = os.path.join(SAVE_DIR, 'q_best_sr_v3.npy')
 SAVE_BEST_SR_NW = os.path.join(SAVE_DIR, 'q_best_sr_nowall_v3.npy')
 SAVE_LATEST     = os.path.join(SAVE_DIR, 'q_latest_v3.npy')
 SAVE_VISITS     = os.path.join(SAVE_DIR, 'q_visits_v3.npy')
